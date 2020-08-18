@@ -1,0 +1,32 @@
+##################################################
+# それぞれの環境設定を書き込むファイル
+##################################################
+export LANG=ja_JP.UTF-8
+export EDITOR=vim
+export PATH=~/repos/bin:$PATH
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+export INCLUDE_PATH=/usr/local/opencv/include:$INCLUDE_PATH
+export C_INCLUDE_PATH=$INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$INCLUDE_PATH
+export LD_LIBRARY_PATH=/usr/local/opencv/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=/usr/local/opencv/lib/pkgconfig:/usr/lib/pkgconfig:$PKG_CONFIG_PATH
+
+# Git Prompt
+[ -f ~/.zsh/git-prompt.sh ] && source ~/.zsh/git-prompt.sh
+# Git Completion
+[ -f ~/.zsh/git-completion.bash ] && source ~/.zsh/git-completion.bash
+
+case ${UID} in
+0)
+  LANG=C
+  ;;
+esac
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . ~/.nvm/nvm.sh
+export NODE_PATH=~/.nvm/v0.8.0/lib/node:~/.nvm/v0.8.0/lib/node_modules
+#rvm use 1.9.3
+#rvm use 1.9.3 --default
+#nvm use "v0.8.0"
+#nvm alias default v0.8.0

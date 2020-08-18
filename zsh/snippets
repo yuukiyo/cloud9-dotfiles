@@ -1,0 +1,45 @@
+ps auxw | peco
+netstat -tnl
+sudo netstat -nlp
+
+# openssl
+openssl s_client -connect host:443 -CAfile `curl-config --ca`
+openssl x509 -text -noout -in certfile
+openssl rsa -text -noout -in privatefile
+openssl req -text -noout -in csrfile
+
+# git
+git log --graph --date=short --decorate=short --pretty=format:'%C(red)%h %C(reset)-%C(yellow)%d %Creset%s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+git log --graph --all --abbrev-commit --date=relative --pretty=format:'%C(red)%h %C(reset)-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+git log --stat
+git commit --amend
+
+# misc
+pstree -alup | less
+rlwrap sqlplus /nolog
+sudo tcpdump -Z root -i eth1 -n tcp port 80 -A
+sudo lsof -i tcp:80
+sudo lsof -i
+while true; do cmd; sleep 1; done
+find . -type f -exec echo {} \;
+
+## rpm
+# パッケージ一覧
+rpm -qa
+# パッケージ詳細
+rpm -qi openssl
+# ファイル一覧
+rpm -ql openssl
+# 依存関係
+rpm -qR openssl
+# ファイルの含まれるパッケージ
+rpm -qf /etc/crontab
+
+## yum
+yum list openssl
+yum search mysql
+
+## date
+date +%s
+date +%Y%m%d
+date --date "@1404909631"
